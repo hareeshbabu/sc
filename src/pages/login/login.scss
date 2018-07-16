@@ -1,0 +1,116 @@
+.bg-img{
+    background-image: url("../assets/imgs/sclogo.png");
+    //background-size: 100%;
+    height: 250px !important;
+    background-size: 350px 300px;
+    background-repeat: no-repeat;
+}
+.login {
+  font-family: 'Ubuntu', sans-serif;
+  //background-image: url("../assets/imgs/sclogo.png");
+  //background-color: #1ab394 !important;
+  background-size: 100%;
+  //margin-top: 100px !important;
+  scroll-content {
+      display: flex;
+      flex-direction: column;
+  }
+
+  ion-grid {
+      padding: 0;
+      height: 100%;
+  }
+
+  ion-row {
+      flex: 1;
+  }
+
+}
+.slide-image {
+  max-height: 50%;
+ max-width: 60%;
+ margin: 36px 0;
+}
+.rmsFormGroup{
+  margin-bottom: 5px;
+}
+.rmsLoginButton{
+  margin-top:10px;
+}
+#LoginPageFooter{
+  color: #f4f4f4;
+  vertical-align: bottom;
+  text-align: center;
+  position: absolute;
+  //bottom: 5px;
+  left: 0%;
+  right: 0%;
+  background-color: #343434;
+  padding: 10px;
+}
+.inlineErrorSpan{
+  font-size: 10px;
+  color: red;
+  font-style: italic;
+}
+page-login {
+  
+   .login-content {
+     background: #56CA96;
+  
+     .logo-row {
+       padding-top: 50px;
+       padding-bottom: 20px;
+     }
+  
+     .login-box {
+       background: #399F8B;
+       padding: 20px 20px 0px 20px;
+       margin-top: 30px;
+     }
+  
+     ion-row {
+        align-items: center;
+        text-align: center;
+      }
+  
+      ion-item {
+          border-radius: 30px !important;
+          padding-left: 30px !important;
+          font-size: 0.9em;
+          margin-bottom: 10px;
+          border: 1px solid #ffffff;
+          border-bottom: 0px !important;
+          box-shadow: none !important;
+      }
+  
+      .signup-col {
+        margin: 0px 16px 0px 16px;
+        padding-bottom: 20px;
+      }
+  
+      .item-inner {
+        border-bottom-color: #ffffff !important;
+        box-shadow: none !important;
+      }
+  
+      .submit-btn {
+        background: #51CFB1;
+        border-radius: 30px !important;
+        border: 1px solid #ffffff;
+      }
+  
+      .register-btn {
+        color: #ffffff;
+        font-size: 0.8em;
+      }
+   }
+   img {
+    border-radius: 100%;
+    height: 150px !important;
+    width: 150px !important;
+    max-width: 150px !important;
+    
+}
+  
+ }

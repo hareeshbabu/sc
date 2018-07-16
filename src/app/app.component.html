@@ -1,0 +1,114 @@
+<ion-split-pane>
+  <!--
+      <ion-menu id="loggedOutMenu" [content]="content">
+    
+        <ion-header>
+          <ion-toolbar color="nav">
+            <ion-title>Menu</ion-title>
+          </ion-toolbar>
+        </ion-header>
+    
+        <ion-content class="outer-content">
+    
+          <ion-list>
+            <ion-list-header>
+              Navigate
+            </ion-list-header>
+            <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
+              <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+              {{p.title}}
+            </button>
+          </ion-list>
+    
+          <ion-list>
+            <ion-list-header>
+              Account
+            </ion-list-header>
+            <button ion-item menuClose *ngFor="let p of loggedOutPages" (click)="openPage(p)">
+              <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+              {{p.title}}
+            </button>
+          </ion-list>
+    
+          <ion-list>
+            <ion-list-header>
+               Settings
+            </ion-list-header>
+            <button ion-item menuClose (click)="openDeviceInfo()">
+              <ion-icon item-start name="phone-portrait"></ion-icon>
+               Device Information
+            </button>
+          </ion-list>
+        </ion-content>
+    
+      </ion-menu>
+    
+      <ion-menu id="loggedInMenu" [content]="content">
+    
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Menu</ion-title>
+          </ion-toolbar>
+        </ion-header>
+    
+        <ion-content class="outer-content">
+    
+          <ion-list>
+            <ion-list-header>
+              Navigate
+            </ion-list-header>
+            <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
+              <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+              {{p.title}}
+            </button>
+          </ion-list>
+    
+          <ion-list>
+            <ion-list-header>
+              Account
+            </ion-list-header>
+            <button ion-item menuClose *ngFor="let p of loggedInPages" (click)="openPage(p)">
+              <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+              {{p.title}}
+            </button>
+          </ion-list>
+    
+          <ion-list>
+            <ion-list-header>
+              Settings
+            </ion-list-header>
+            <button ion-item menuClose (click)="openDeviceInfo()">
+              <ion-icon item-start name="phone-portrait"></ion-icon>
+              Device Information
+            </button>
+          </ion-list>
+    
+        </ion-content>
+    
+      </ion-menu>
+    
+      <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main hide-nav-bar="true"></ion-nav>
+    -->
+  <ion-menu [content]="content" id="menu-dark">
+    <ion-header class="sidemenuHeader">
+      <ion-toolbar>
+        <ion-item no-lines>
+          <ion-avatar item-left>
+            <h2>{{user.FirstName | slice:0:1}}{{user.LastName | slice:0:1}}</h2>
+          </ion-avatar>
+          <h2>Hello {{user.FirstName}} {{user.LastName}}</h2>
+          <p>Welcome to School Connect!</p>
+        </ion-item>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="menu">
+      <ion-list>
+        <button menuClose="left" ion-item *ngFor="let p of pages" (click)="openPage(p)">
+          <ion-icon [name]="p.icon" item-left></ion-icon> {{p.title}} <ion-badge *ngIf="p.showcount" item-end>{{OfflineCount}}</ion-badge>
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main hide-nav-bar="true"></ion-nav>
+</ion-split-pane>

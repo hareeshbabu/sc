@@ -1,0 +1,68 @@
+progress-bar {
+    
+        .progress-outer {
+            width: 96%;
+            margin: 10px 2%;
+            padding: 3px;
+            text-align: center;
+            background-color: #f4f4f4;
+            border: 1px solid #dcdcdc;
+            color: #fff;
+            border-radius: 20px;
+        }
+    
+        .progress-inner {
+            min-width: 15%;
+            white-space: nowrap;
+            overflow: hidden;
+            padding: 5px;
+            border-radius: 20px;
+            background-color: map-get($colors, primary);
+        }
+    
+    }
+    .bg-theme{
+       background-color: #51CFB1 !important;
+    }
+    .tutorial-page {
+        
+          .toolbar-background {
+            background: #fff;
+            border-color: transparent;
+          }
+        
+          .slide-zoom {
+            height: 100%;
+          }
+        
+          .slide-title {
+            margin-top: 2.8rem;
+          }
+        
+          .slide-image {
+            max-height: 50%;
+            max-width: 60%;
+            margin: 18px 0;
+          }
+        
+          b {
+            font-weight: 500;
+          }
+        
+          p {
+            padding: 0 40px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #60646B;
+        
+            b {
+              color: #000000;
+            }
+          }        
+        }
+        .loading-text{
+          color: white !important;
+        }
+        .div-middle {
+          margin-top: 100px !important;
+        }

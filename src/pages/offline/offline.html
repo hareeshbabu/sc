@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <button ion-button icon-only end>
+      <ion-icon name="cloud-upload"></ion-icon>
+    </button>
+    <ion-title>Offline Data
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-card *ngFor="let item of attn">
+    <ion-card-header>
+      Class : {{item.ClassName}}, Date: {{item.Date}}
+    </ion-card-header>
+    <ion-card-content>
+      Present : {{item.present}}, Absent : {{item.absent}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

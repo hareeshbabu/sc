@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Attendence</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Class</ion-label>
+      <ion-select [(ngModel)]="attnclassid" (ionChange)="ClassChangeEvent()">
+        <ion-option *ngFor="let item of class" value="{{item.ClassID}}">{{item.Name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="attndate" (ionChange)="DateChangeEvent()"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <button ion-button color="secondary" full (click)="getstudentlist()">Get Data</button>
+    </ion-item>
+  </ion-list>
+  <ion-card *ngIf="SubmitedMsg">
+    <ion-card-header>
+      Message
+    </ion-card-header>
+    <ion-card-content>
+      Attendence already submitted for the selected day.
+    </ion-card-content>
+  </ion-card>
+  <ion-list *ngIf="showattnsub">
+    <ion-list-header>
+      Submit Attendence
+    </ion-list-header>
+    <ion-item *ngFor="let item of students">
+      <ion-toggle [(ngModel)]="item.IsPresent" checked="{{item.IsPresent}}"></ion-toggle>
+      <ion-label>
+        {{item.FirstName}} {{item.LastName}}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <button ion-button color="secondary" full (click)="submitAttendence()">Submit Attendence</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

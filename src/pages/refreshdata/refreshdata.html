@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Refresh Data</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="tutorial-page">
+  <ion-slides pager>
+    <ion-slide *ngFor="let slide of slides">
+      <!-- <ion-toolbar>
+        <ion-buttons end>
+          <button ion-button color="primary">Skip</button>
+        </ion-buttons>
+      </ion-toolbar>
+      <img [src]="slide.image" class="slide-image" /> -->
+      <div class="div-middle">
+        <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+        <h4 [innerHTML]="slide.question"></h4>
+        <p [innerHTML]="slide.description"></p>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <h4 class="loading-text">
+      Loading {{LoadingMessage}}
+    </h4>
+    <progress-bar [progress]="loadProgress"></progress-bar>
+  </ion-toolbar>
+</ion-footer>

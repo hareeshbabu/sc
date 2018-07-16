@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Student Information Report</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Class</ion-label>
+      <ion-select [(ngModel)]="attnclassid" (ionChange)="ClassChangeEvent()">
+        <ion-option *ngFor="let item of class" value="{{item.ClassID}}">{{item.Name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Student</ion-label>
+      <ion-select [(ngModel)]="attnclassid" (ionChange)="ClassChangeEvent()">
+        <ion-option *ngFor="let item of class" value="{{item.ClassID}}">{{item.Name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <button ion-button color="secondary" full (click)="download()">Generate Report</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

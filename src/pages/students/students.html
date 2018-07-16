@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Students</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Class</ion-label>
+      <ion-select [(ngModel)]="ClassID" (ionChange)="ClassChangeEvent()">
+        <ion-option *ngFor="let item of class" value="{{item.ClassID}}">{{item.Name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="ShowStudents">
+      <ion-label color="black">Search:</ion-label>
+      <ion-input type="text" [(ngModel)]="StudentSearchTerm" (ionChange)="SearchStudent()" placeholder="Search"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="ShowStudents">
+    <ion-item *ngFor="let item of StudentsByClass">
+      <ion-avatar item-left>
+        <h2>{{item.FirstName | slice:0:1}}{{item.LastName | slice:0:1}}</h2>
+      </ion-avatar>
+      <h2>{{item.FirstName}} {{item.LastName}}</h2>
+      <p>Roll Number : {{item.RollNumber}}</p>
+      <p>{{item.ClassName}}</p>
+      <button ion-button clear item-end (click)="viewStudentProfile()">View</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,116 @@
+<!--<ion-content class="login">
+  <ion-grid>
+     <ion-row class="sel-type">
+      <ion-col>
+        <div class="form-group">
+          <ion-label>Select Login Type</ion-label>
+          <ion-select [(ngModel)]="logintype" (ionChange)="onLogInSelectChange($event)">
+            <ion-option value="1">Teacher</ion-option>
+            <ion-option value="2">Student</ion-option>
+          </ion-select>
+        </div>
+      </ion-col>
+    </ion-row>
+    <form #loginForm="ngForm" novalidate>
+      <ion-row>
+        <ion-col class="bg-img">
+
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="form-group">
+            <ion-label>Select Login Type</ion-label>
+            <select class="form-control" name="logintype" [(ngModel)]="logintype" (change)="onLogInSelectChange($event)">
+              <option value="1">Teacher</option>
+              <option value="2">Student</option>
+            </select>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="!IsStudentLogin">
+        <ion-col>
+          <div class="form-group">
+            <label>User Name </label>
+            <input type="email" #username="ngModel" class="form-control" name="username" [(ngModel)]="login.username" required>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="!IsStudentLogin">
+        <ion-col>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" #password="ngModel" class="form-control" name="password" [(ngModel)]="login.password" required>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="!IsStudentLogin">
+        <ion-col>
+          <button type="button" ion-button block class="rmsLoginButton" (click)='authenticate()'>Login</button>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="IsStudentLogin">
+        <ion-col>
+          <div class="form-group">
+            <label>Admission Number</label>
+            <input type="text" #username="ngModel" class="form-control" name="username" [(ngModel)]="login.username" required>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="IsStudentLogin">
+        <ion-col>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" #password="ngModel" class="form-control" name="password" [(ngModel)]="login.password" required>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="IsStudentLogin">
+        <ion-col>
+          <button type="button" ion-button block class="rmsLoginButton" [disabled]=loginForm.invalid (click)='authenticate()'>Login</button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <p id="LoginPageFooter">Powered by
+            <strong>
+              <i> schoolconn.org</i>
+            </strong>
+          </p>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>-->
+<ion-content class="login-content" padding>
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col>
+      <img src="../assets/imgs/sclogo.png" style="border: #5b753c 4px solid;" />
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+  <div class="login-box">
+    <form (ngSubmit)="authenticate()" #registerForm="ngForm">
+      <ion-row>
+        <ion-col>
+          <span style="color:red;"> {{ErrorMessage}}</span>
+          <ion-list inset>
+            <ion-item>
+              <ion-input type="text" placeholder="Email" name="username" [(ngModel)]="login.username" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="login.password" required></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Login</button>
+          <button ion-button class="register-btn" block clear (click)="createAccount()">Create New Account</button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+</ion-content>

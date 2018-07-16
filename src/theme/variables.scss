@@ -1,0 +1,164 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/v2/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+
+$headings-font-weight: 300;
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  primary:    #488aff,
+  secondary:  #1ab394,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222,
+  favorite:   #69BB7B,
+  twitter:    #1da1f4,
+  google:     #dc4a38,
+  vimeo:      #23b6ea,
+  facebook:   #3b5998,
+  //nav:        #1ab394,
+  nav:        #19152C,
+  none:        #ffffff
+);
+$header_color:#8835C3;
+$sidemenu_color:#19152C;
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+// Use the primary color as the background for the toolbar-md-background
+$toolbar-md-background:                   color($colors, nav);
+
+// Change the color of the segment button text
+$toolbar-md-active-color:                 #fff;
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+.button{
+  height: 3.6em !important;
+}
+.badge{
+    background-color: #488aff;
+    padding: 5px;
+    color: #f6f3f3 !important;
+    border-radius: 5px;
+}
+.list-header-md {
+    margin-bottom: 0px !important;
+    color: #488aff !important;
+}
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.5rem;
+    line-height: 1.95;
+    color: #000000;
+    background-color: #fafafa;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid #848484;
+    border-radius: 0;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.form-control-select{
+    max-width: inherit !important;
+    height: 4rem;
+    width: auto !important;
+}
+.form-control-date{
+    max-width: inherit !important;
+    height: 4rem;
+    width: 100% !important;
+    padding-top: 0.8rem !important;
+}
+.select-icon {
+    float: right !important;
+    // height: 28px !important;
+}
+.select-text {
+    float: left !important;
+}
+.full-textarea{
+  height: 75vh;
+}
+.railcarImg{
+  border: #494646  1px solid;
+  width: 100%;
+  height: auto;
+//   object-fit: cover;
+  overflow: hidden;
+}
+.select-text {
+    line-height: 18px !important;
+}
+.select-md .select-icon .select-icon-inner {
+	// margin-top: -6px !important;
+}
+.select-md {
+	padding: 10px !important;
+}
+ion-icon {
+	font-size: 2.4rem !important;
+}
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/v2/ionicons/
+*{
+  font-family: 'Ubuntu', sans-serif;
+}
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+// Roboto font is used by default for Material Design. Noto sans
+// is used by default for Windows.
+
+//@import "roboto";
+//@import "noto-sans";
