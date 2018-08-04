@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Exam Class</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label color="black">Search:</ion-label>
+      <ion-input type="text" [(ngModel)]="ExamClsSearchTerm" (ionChange)="SearchExamClass()" placeholder="Search"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item *ngFor="let item of examclass">
+      <h2>{{item.ClassName}}</h2>
+      <button ion-button clear item-end (click)="gotoExamClsMapping(item)">View</button>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="!IsData">
+    <ion-item>
+      <h2>No Data Found</h2>
+    </ion-item>
+  </ion-list>
+</ion-content>

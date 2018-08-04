@@ -3,11 +3,13 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <button ion-button icon-only end>
-      <ion-icon name="cloud-upload"></ion-icon>
-    </button>
     <ion-title>Offline Data
     </ion-title>
+    <ion-buttons end>
+      <button (click)="test()" ion-button icon-only>
+        <ion-icon name="cloud-upload"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content padding>

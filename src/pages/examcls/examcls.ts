@@ -1,25 +1,24 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, AlertController, LoadingController, Loading, Alert, ToastController } from 'ionic-angular';
 import { MetaData } from '../../services/metadata'
-import { ExaminationData } from '../../models/appmodel';
 import { Http, Headers } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import { Network } from '@ionic-native/network';
 
-import { ExamclsPage } from '../examcls/examcls';
 import { ExamsubjPage } from '../examsubj/examsubj';
-
+import { ExamClassMapData } from '../../models/appmodel';
 @IonicPage()
 @Component({
-  selector: 'page-exam',
-  templateUrl: 'exam.html',
+  selector: 'page-examcls',
+  templateUrl: 'examcls.html',
 })
-export class ExamPage {
-  exams: ExaminationData[];
-  AllExams: ExaminationData[];
-  ExamSearchTerm: string;
+export class ExamclsPage {
+  ExaminationID: number;
+  examclass: ExamClassMapData[];
+  allcalssmapdata: ExamClassMapData[];
   IsData: boolean = false;
+  ExamClsSearchTerm: string;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -31,21 +30,22 @@ export class ExamPage {
     private network: Network,
     public toastCtrl: ToastController
   ) {
-    this.getExaminations();
+    this.ExaminationID = this.navParams.get('ExamID');
+    this.getExamClassMapData();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ExamPage');
+    console.log('ionViewDidLoad ExamclsPage');
   }
-  getExaminations() {
+  getExamClassMapData() {
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
     loading.present();
-    this.metadata.getExaminations().subscribe(data => {
-      this.exams = data;
-      this.AllExams = data;
-      if (this.exams.length > 0)
+    this.metadata.getExamClassData(this.ExaminationID).subscribe(data => {
+      this.examclass = data;
+      this.allcalssmapdata = data;
+      if (this.examclass.length > 0)
         this.IsData = true;
       else
         this.IsData = false;
@@ -59,17 +59,12 @@ export class ExamPage {
       loading.dismiss();
     });
   }
-  SearchExamination() {
-    this.exams = this.AllExams.filter(m => m.Name.toLowerCase().indexOf(this.ExamSearchTerm.toLowerCase()) > -1)
-    if (this.exams.length > 0)
+  SearchExamClass() {
+    this.examclass = this.allcalssmapdata.filter(m => m.ClassName.toLowerCase().indexOf(this.ExamClsSearchTerm.toLowerCase()) > -1)
+    if (this.examclass.length > 0)
       this.IsData = true;
     else
       this.IsData = false;
   }
-  gotoExamClsMapping(e) {
-    this.navCtrl.push(ExamclsPage, { ExamID: e.ExaminationID });
-  }
-  CreateExam() {
-    this.navCtrl.push(ExamclsPage);
-  }
+
 }

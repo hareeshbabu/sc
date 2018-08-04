@@ -262,4 +262,19 @@ export class ExamClassMapData {
     ClassName: string;
     ClassCode: string;
 }
+export class StudentListInClassBySubject {
+    StudentID: number;
+    StudentName: string;
+    ClassID: number;
+    ExamClassMapID: number;
+    RollNumber: number;
+    AdmissionNumber: string;
+    TotalMarks: number;
+    ExamScheduleID: number;
+    MaxMarks: number;
+    MarksObtained: number;
+    IsAbsent: boolean;
+    StudentExamID: number;
+    AbsentReason: string;
+}
 //End of Examinations

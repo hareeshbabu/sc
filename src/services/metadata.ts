@@ -6,7 +6,8 @@ import { Observable } from 'rxjs/Rx';
 import {
     AppContext, apiurls, api, ClassData, Students, MobileAttnResponse,
     AuthResponse, FeeComponentData, FeeComponents, FeeTerms, FeeTermsData,
-    ExpenseType, ExpByCategory, ExpenseData, Expenses, EarningsVsExpenses
+    ExpenseType, ExpByCategory, ExpenseData, Expenses, EarningsVsExpenses,
+    ExaminationData, ExamClassMapData
 
 } from '../models/appmodel';
 
@@ -99,10 +100,23 @@ export class MetaData {
         return this.http.get(endPoint, this.xcom.getAuthOptions(this.appContext))
             .map(res => res.json() as ExpenseType[]);
     }
-    getExpenses(){
+    getExpenses() {
         var endPoint = environment.apiHostName + endpoint.ExpenseType;
         return this.http.get(endPoint, this.xcom.getAuthOptions(this.appContext))
             .map(res => res.json() as ExpenseData[]);
     }
     //End of Expenses
+
+    //Examinations
+    getExaminations() {
+        var endPoint = environment.apiHostName + endpoint.Examinations;
+        return this.http.get(endPoint, this.xcom.getAuthOptions(this.appContext))
+            .map(res => res.json() as ExaminationData[]);
+    }
+    getExamClassData(examid) {
+        var endPoint = environment.apiHostName + endpoint.ExamClassMap + '/' + examid;
+        return this.http.get(endPoint, this.xcom.getAuthOptions(this.appContext))
+            .map(res => res.json() as ExamClassMapData[]);
+    }
+    //End of examinations
 }

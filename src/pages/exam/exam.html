@@ -1,13 +1,37 @@
 <ion-header>
-    <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Examinations</ion-title>
+    <ion-buttons end>
+      <button (click)="CreateExam()" ion-button icon-only>
+        <ion-icon name="add"></ion-icon>
       </button>
-      <ion-title>Examinations</ion-title>
-    </ion-navbar>
-  </ion-header>
-
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item>
+      <ion-label color="black">Search:</ion-label>
+      <ion-input type="text" [(ngModel)]="ExamSearchTerm" (ionChange)="SearchExamination()" placeholder="Search"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item *ngFor="let item of exams">
+      <!-- <ion-avatar item-left>
+        <h2>{{item.Name | slice:0:1}}</h2>
+      </ion-avatar> -->
+      <h2>{{item.Name}}</h2>
+      <p>{{item.StartDate}} - {{item.EndDate}}</p>
+      <button ion-button clear item-end (click)="gotoExamClsMapping(item)">View</button>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="!IsData">
+    <ion-item>
+      <h2>No Data Found</h2>
+    </ion-item>
+  </ion-list>
 </ion-content>

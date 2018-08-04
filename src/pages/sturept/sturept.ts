@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, AlertController, LoadingController, Loading, Alert } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, ModalController, AlertController, LoadingController, Loading, Alert } from 'ionic-angular';
 import { MetaData } from '../../services/metadata';
 import { ClassData, Students } from '../../models/appmodel';
 import { Http, Headers } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
+import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-viewer';
 
 @IonicPage()
 @Component({
@@ -21,7 +22,9 @@ export class StureptPage {
     public loadingCtrl: LoadingController,
     private storage: Storage,
     private transfer: FileTransfer,
-    private file: File
+    private file: File, 
+    private platform: Platform, 
+    private document: DocumentViewer
   ) {
   }
   ionViewDidLoad() {
@@ -46,18 +49,16 @@ export class StureptPage {
     });
   }
   download() {
-    const fileTransfer: FileTransferObject = this.transfer.create();
-    const url = 'http://schoolconn.org/Documents/StudentHistoryReport07082018113243.pdf';
-    fileTransfer.download(url, this.file.dataDirectory + 'file.pdf').then((entry) => {
-      let errAlert = this.alrtCtrl.create({
-        title: 'Error',
-        subTitle: 'Failed to generate report, please open a support ticket.',
-        buttons: ['Ok']
-      });
-      errAlert.present();
-      console.log('download complete: ' + entry.toURL());
-    }, (error) => {
-      // handle error
+    let path = null;
+    if (this.platform.is('ios')) {
+      path = this.file.documentsDirectory;
+    } else if (this.platform.is('android')) {
+      path = this.file.dataDirectory;
+    }
+    const transfer = this.transfer.create();
+    transfer.download('https://devdactic.com/html/5-simple-hacks-LBT.pdf', path + 'myfile.pdf').then(entry => {
+      let url = entry.toURL();
+      this.document.viewDocument(url, 'application/pdf', {});
     });
   }
 }

@@ -13,5 +13,9 @@ export const endpoint = {
     FeeTerms: 'MobileFeeTermData',
     ExpenseType: 'MobileExpenseTypeData',
     ExpenseData: 'MobileExpenseMgrData',
-    ExpenseDashboardData: 'ExpenseDashboardData'
+    ExpenseDashboardData: 'ExpenseDashboardData',
+    Examinations: 'MobileAppExamData',
+    ExamClassMap: 'MobileAppExamClassMapData',
+    ExamSchedule: 'MobileAppExamScheduleData',
+    ExamBySubj: 'MobileAppStudentExamBySubjectData'
 };

@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
+import { DocumentViewer } from '@ionic-native/document-viewer';
 
 
 import { SQLite } from '@ionic-native/sqlite';
@@ -29,6 +30,8 @@ import { EditstudentPage } from '../pages/editstudent/editstudent';
 import { ExamPage } from '../pages/exam/exam';
 import { ExpmgrPage } from '../pages/expmgr/expmgr';
 import { StufeePage } from '../pages/stufee/stufee';
+import { ExamclsPage } from '../pages/examcls/examcls';
+import { ExamsubjPage } from '../pages/examsubj/examsubj';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -57,7 +60,9 @@ import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
     EditstudentPage,
     ExamPage,
     ExpmgrPage,
-    StufeePage
+    StufeePage,
+    ExamclsPage,
+    ExamsubjPage
   ],
   imports: [
     BrowserModule,
@@ -84,7 +89,9 @@ import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
     EditstudentPage,
     ExamPage,
     ExpmgrPage,
-    StufeePage
+    StufeePage,
+    ExamclsPage,
+    ExamsubjPage
   ],
   providers: [
     StatusBar,
@@ -96,7 +103,8 @@ import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SQLite,
     Toast,
-    Network
+    Network,
+    DocumentViewer
   ]
 })
 export class AppModule {}
